@@ -1,0 +1,51 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+
+<div class="container-fluid">
+    <h2>Agendamentos</h2>
+
+        <div class="container-fluid" align="left">
+        <a name="" id="" class="btn btn-primary aling-right" href="/logout" role="button"> Sair </a>
+        <a href="evento/"><button type="button" class="btn btn-success">Novo</button></a>
+        </div>
+        
+        <p>
+
+            <table class="table">
+                <thead class="thead-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Atividade</th>
+                        <th scope="col">Horario</th>
+                        <th scope="col">Descricao</th>
+                        <th scope="col">Editar</th>
+                    </tr>
+                </thead>
+                
+            {% for evento in eventos %}
+                <tbody class="card-body">
+                    <tr>
+                    <th scope="row">
+                            {{ evento.id }} 
+                    </th>
+                    <th scope="row">
+                            {{ evento.titulo }} 
+                    </th>
+                    <th scope="row">
+                            {{ evento.get_data_evento }}
+                    </th>
+                    <th scope="row">
+                            {{ evento.descricao }}
+                    </th>
+                    <th scope="row">
+                    <button type="button" class="btn btn-info"><a href = "evento/?id={{ evento.id }}">Editar</a></button>
+                            / 
+                    <button type="button" class="btn btn-danger"><a href="evento/confirm_delete/{{ evento.id }}/">Excluir</a></button>
+                    </th>
+                </tbody>
+            {% endfor %}
+        </table> 
+</div>
+{% endblock %}

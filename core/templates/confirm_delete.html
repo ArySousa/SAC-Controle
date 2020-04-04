@@ -1,0 +1,44 @@
+{% extends "model-page.html" %}
+
+{% block content %}
+
+<script>
+	$(document).ready(function(){
+		$("#myModal").modal('show');
+	});
+</script>
+<style>
+    .bs-example{
+    	margin: 20px;
+    }
+
+h5 {
+  background: #cce5ff;
+  margin: 5px;
+  text-align: center;
+    }
+</style>
+
+<div class="bs-example">
+    <div id="myModal" class="modal fade" tabindex="-1">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title"><b>Deseja Apagar este Registro !</b></h5>
+                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ evento.usuario }}</p>
+                    <p>{{ evento.titulo }}</p>
+                    <p class="text-secondary"><small>{{ evento.descricao }}</small></p>
+                    <p class="text-secondary"><small>{{ evento.data_evento }}</small></p>
+                </div>
+                <div class="modal-footer">
+                    <button type="reset" class="btn btn-secondary" data-dismiss="modal"><a href = "agenda/">Cancel</a></button>
+                    <button type="button" class="btn btn-danger"><a href="evento/delete/{{ evento.id }}/">Excluir</a></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}                          

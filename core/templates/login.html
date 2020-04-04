@@ -1,0 +1,57 @@
+
+<head>
+    <title>Acessar Painel de Login</title>
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/base.css">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/login.css">
+        <link rel="stylesheet" type="text/css" href="/static/core/css/login.css">
+        <meta name="viewport" content="user-scalable=no, width=device-width, initial-scale=1.0, maximum-scale=1.0">
+        <link rel="stylesheet" type="text/css" href="/static/admin/css/responsive.css">
+        <meta name="robots" content="NONE,NOARCHIVE">
+        <link href="/static/core/bootstrap4/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+        <script src="/static/core/bootstrap4/js/bootstrap.min.js"></script>
+        <script src="/static/core/js/jquery.min.js"></script>
+<!------ Include the above in your HEAD tag ---------->
+</head>
+ 
+    <body class=" login" data-admin-utc-offset="-14400">
+            <!-- Login Form -->
+<div class="wrapper fadeInDown">
+  <div id="formContent">
+    <!-- Tabs Titles -->
+
+    <!-- Icon -->
+    <div class="fadeIn first">
+      <img src="/static/core/imagens/Logown.jpg" id="icon" alt="User Icon">
+    </div>
+
+    <!-- Login Form -->
+    <form action="submit" method="POST">{% csrf_token %}
+      <input type="text" id="login" class="fadeIn second" name="username" placeholder="Usuário" required><br>
+      <input type="password" id="password" class="fadeIn third" name="password" placeholder="Senha" >
+      <input type="submit" class="fadeIn fourth" value="Log In">
+    </form>
+
+    <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Esqueceu Sua Senha?</a>
+    </div>
+
+  </div>
+</div>
+
+        </div>
+          
+           {% for message in messages %}
+            <strong>Erro !</strong> {{ message }}
+           {% endfor %}
+
+          </div>
+        
+
+        <!-- END Container -->
+     <!-- Remind Passowrd -->
+    <div id="formFooter">
+      <a class="underlineHover" href="#">Forgot Password?</a>
+    </div>
+    </body>
+</html>
